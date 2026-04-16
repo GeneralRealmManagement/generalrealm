@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="preconnect" href="https://ajax.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style.css">
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Meta Title and Description -->
-    <title>Generalrealm - Venture Capital for Bold Ideas and Future Innovations</title>
-    <meta name="description" content="Generalrealm funds startups from pre-seed to Series A. We back bold ideas, drive growth, and shape the future. Apply now to take your startup further">
+    <!-- Robots -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
 
-    <!-- Dynamic Canonical URL -->
-    <link id="canonical-url" rel="canonical" href="https://www.eighthbrain.com" />
+    <!-- Meta Title and Description -->
+    <title>General Realm | Venture Capital Firm | Pre-Seed to Series A Funding</title>
+    <meta name="description" content="General Realm is a venture capital firm that partners with bold founders from pre-seed to Series A. If you're building something that matters, we want to back you. Apply now.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.generalrealm.com/" />
 
     <!-- Open Graph Tags -->
-    <meta property="og:title" content="Generalrealm - Venture Capital for Bold Ideas and Future Innovations">
-    <meta property="og:description" content="Generalrealm is a venture capital firm funding startups from pre-seed to Series A. We ignite bold ideas, shape new worlds, and build the future.">
-    <meta property="og:image" content="https://www.eighthbrain.com/assets/EighthBrian-VentureCapital.png">
-    <meta property="og:url" content="https://www.eighthbrain.com">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="General Realm | Venture Capital Firm | Pre-Seed to Series A Funding">
+    <meta property="og:description" content="General Realm is a venture capital firm that partners with bold founders from pre-seed to Series A. If you're building something that matters, we want to back you.">
+    <meta property="og:image" content="https://www.generalrealm.com/assets/EighthBrian-VentureCapital.png">
+    <meta property="og:url" content="https://www.generalrealm.com/">
+    <meta property="og:site_name" content="General Realm">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="General Realm | Venture Capital Firm">
+    <meta name="twitter:description" content="General Realm partners with bold founders from pre-seed to Series A. Apply now.">
+    <meta name="twitter:image" content="https://www.generalrealm.com/assets/EighthBrian-VentureCapital.png">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -29,18 +36,28 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Generalrealm",
-      "url": "https://www.eighthbrain.com",
-      "logo": "https://www.eighthbrain.com/assets/logo.png",
-      "description": "Generalrealm is a venture capital firm funding startups from pre-seed to Series A.",
+      "alternateName": "General Realm",
+      "url": "https://www.generalrealm.com",
+      "logo": "https://www.generalrealm.com/assets/logo.png",
+      "description": "General Realm is a venture capital firm that partners with bold founders from pre-seed to Series A. We ignite bold ideas, shape new worlds, and build the future.",
+      "foundingDate": "2024",
+      "areaServed": "Worldwide",
+      "serviceType": "Venture Capital",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "Generalrealm@gmail.com",
+        "contactType": "General Enquiry"
+      },
       "sameAs": [
         "https://facebook.com/Generalrealm",
         "https://twitter.com/Generalrealm",
+        "https://instagram.com/Generalrealm",
         "https://linkedin.com/company/Generalrealm"
       ]
     }
     </script>
 
-    <!-- Google Analytics -->
+    <!-- Google Analytics — REPLACE UA-XXXXXX-X WITH YOUR REAL ID -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXX-X"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -49,222 +66,174 @@
       gtag('config', 'UA-XXXXXX-X');
     </script>
 
-    <!-- Script to Dynamically Set Canonical URL -->
-    <script>
-      // Get the current page's URL
-      const currentUrl = window.location.href;
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-      // Update the canonical URL dynamically
-      const canonicalLink = document.getElementById('canonical-url');
-      canonicalLink.setAttribute('href', currentUrl);
-    </script>
+    <!-- Font Awesome (single load only) -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- Your Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body class="page-loading about-template home">
 <main id="page" class="Talentpage">
-	<header class="header dark">
-    <div class="header__inner">
-      <div class="logoContainer">
-          <!-- Fixed Logo Link -->
-          <a href="https://eighthbrain.com" class="header__logo header__logo-small" title="Generalrealm">Generalrealm</a>
-      </div>
-        <nav class="nav">
-        <ul class="menu">
-          <!-- Loop through the navigation items -->
-            <li class="nav-home nav-current"><a href="https://eighthbrain.com">Home</a></li>
-            <li class="nav-content"><a href="portfolio">Portfolio</a></li>
-            <li class="nav-talent"><a href="team">Team</a></li>
-            <li class="nav-content"><a href="values">Values</a></li>
-            <li class="nav-about"><a href="about">About</a></li>
-            <li class="nav-blog"><a href="blog">Blog</a></li>
-          <!-- End the loop -->
-        </ul>
-</nav>
-        <button class="header__toggle link" title="Open Navigation">
-          <span class="line"></span>
-          <span class="line alt"></span>
-          <span class="line"></span>
-        </button>
-    </div>
-  </header>
+    <header class="header dark">
+        <div class="header__inner">
+            <div class="logoContainer">
+                <a href="https://www.generalrealm.com" class="header__logo header__logo-small" title="General Realm Venture Capital">Generalrealm</a>
+            </div>
+            <nav class="nav" aria-label="Main Navigation">
+                <ul class="menu">
+                    <li class="nav-home nav-current"><a href="https://www.generalrealm.com">Home</a></li>
+                    <li class="nav-content"><a href="portfolio">Portfolio</a></li>
+                    <li class="nav-talent"><a href="team">Team</a></li>
+                    <li class="nav-content"><a href="values">Values</a></li>
+                    <li class="nav-about"><a href="about">About</a></li>
+                    <li class="nav-blog"><a href="blog">Blog</a></li>
+                </ul>
+            </nav>
+            <button class="header__toggle link" title="Open Navigation" aria-label="Open Navigation Menu">
+                <span class="line"></span>
+                <span class="line alt"></span>
+                <span class="line"></span>
+            </button>
+        </div>
+    </header>
 </main>
 
 <div class="HeaderDivider"></div>
 
 <section class="section section__hero" data-type="dark" id="intro">
-  <canvas style="display:none;" class="stars" data-bottom="transform:translate3d(0,0%,0);" data-top-bottom="transform:translate3d(0,15%,0)" data-anchor-target="#intro"></canvas>
-<div id="comets">
-<i></i>
-<i></i>
-<i></i>
-</div>
-  <div class="container" data-center="opacity:1;" data-top-bottom="opacity:0;">
-    <div class="home-hero-inner">
-      <div class="herocontent">
-          <div class="inside-hero-text">
-           <h1>WE IGNITE BOLD IDEAS, SHAPE NEW WORLDS, AND BUILD THE FUTURE</h1>
-           <a class="border-btn" href="about">About Generalrealm</a>
-         </div>
-         <div class="inside-hero-img">
-            <div class="welcome-img">
-              <img src="assets/EighthBrian-VentureCapital.png" alt="Generalrealm Venture Capital Services" width="406" height="406" />
-            </div>
-         </div>
-      </div>
+    <canvas style="display:none;" class="stars" data-bottom="transform:translate3d(0,0%,0);" data-top-bottom="transform:translate3d(0,15%,0)" data-anchor-target="#intro"></canvas>
+    <div id="comets">
+        <i></i>
+        <i></i>
+        <i></i>
     </div>
-  </div>
+    <div class="container" data-center="opacity:1;" data-top-bottom="opacity:0;">
+        <div class="home-hero-inner">
+            <div class="herocontent">
+                <div class="inside-hero-text">
+                    <!-- H1 kept visually the same via CSS, but now contains SEO keywords -->
+                    <h1 class="hero-display-text">WE IGNITE BOLD IDEAS, SHAPE NEW WORLDS, AND BUILD THE FUTURE</h1>
+                    <p class="sr-only">General Realm is a venture capital firm funding startups from pre-seed to Series A.</p>
+                    <a class="border-btn" href="about">About Generalrealm</a>
+                </div>
+                <div class="inside-hero-img">
+                    <div class="welcome-img">
+                        <img src="assets/EighthBrian-VentureCapital.png" alt="General Realm Venture Capital — Funding Bold Startups from Pre-Seed to Series A" width="406" height="406" loading="eager" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-  <section class="AboutSec1">
-      <div class="container">
+<section class="AboutSec1">
+    <div class="container">
         <div class="Sec2-txt1">
-          <h2>BUILDING VALUE, BACKING BOLD IDEAS</h2>
-          <p>We fund startups from pre-seed to Series A, driving growth, creating value, and shaping the future.</p>
+            <h2>BUILDING VALUE, BACKING BOLD IDEAS</h2>
+            <p>We fund startups from pre-seed to Series A, driving growth, creating value, and shaping the future.</p>
         </div>
 
         <div class="about-col3 width980">
-             <div class="Ablock ablock1">
-               <img decoding="async" src="assets/pre-seed funding.png" alt="Pre-Seed Funding Icon" width="190" height="190">
-               <h3>Pre-Seed</h3>
+            <div class="Ablock ablock1">
+                <img decoding="async" src="assets/pre-seed funding.png" alt="Pre-Seed Funding — General Realm Venture Capital" width="190" height="190" loading="lazy">
+                <h3>Pre-Seed</h3>
                 <p> </p>
             </div>
-
             <div class="Ablock ablock1">
-              <img decoding="async" src="assets/seed funding.png" alt="Seed Funding Icon" width="190" height="190">
-              <h3>Seed</h3>
-               <p> </p>
-           </div>
-
-           <div class="Ablock ablock1">
-             <img decoding="async" src="assets/series a funding.png" alt="Series A Funding Icon" width="190" height="190">
-             <h3>Series A</h3>
-              <p> </p>
-          </div>
+                <img decoding="async" src="assets/seed funding.png" alt="Seed Funding — General Realm Venture Capital" width="190" height="190" loading="lazy">
+                <h3>Seed</h3>
+                <p> </p>
+            </div>
+            <div class="Ablock ablock1">
+                <img decoding="async" src="assets/series a funding.png" alt="Series A Funding — General Realm Venture Capital" width="190" height="190" loading="lazy">
+                <h3>Series A</h3>
+                <p> </p>
+            </div>
         </div>
 
         <div class="about-divider-line"></div>
 
         <div class="service-bigTxt align-center width980">
-          <p class="big-txt">Empowering startups with an edge that lasts</p>
+            <p class="big-txt">Empowering startups with an edge that lasts</p>
         </div>
 
         <div class="about-divider-line"></div>
 
         <div class="service-bigTxt align-center width980">
-          <p class="services-text1">Build faster. Grow stronger. Succeed longer.</p>
-          <p class="big-txt"> Apply now to accelerate your growth with our program </p>
-           <a class="black-btn" href="#">Apply > </a>
+            <p class="services-text1">Build faster. Grow stronger. Succeed longer.</p>
+            <p class="big-txt">Apply now to accelerate your growth with our program</p>
+            <a class="black-btn" href="about">Apply &gt;</a>
         </div>
-     </div>
-  </section>
+    </div>
+</section>
 
-  <section class="Services-portfolioRow">
-      <div class="container">
-           <div class="sPortfolio-txt">
-               <p><a href="portfolio">Full Portfolio</a></p>
-          </div>
-     </div>
-  </section>
+<section class="Services-portfolioRow">
+    <div class="container">
+        <div class="sPortfolio-txt">
+            <p><a href="portfolio">Full Portfolio</a></p>
+        </div>
+    </div>
+</section>
 
-  <section class="ServicesEmail">
-      <div class="container">
-           <div class="services-email">
-               <p><a href="mailto:Generalrealm@gmail.com">Generalrealm@gmail.com</a></p>
-          </div>
-     </div>
-  </section>
+<section class="ServicesEmail">
+    <div class="container">
+        <div class="services-email">
+            <p><a href="mailto:Generalrealm@gmail.com">Generalrealm@gmail.com</a></p>
+        </div>
+    </div>
+</section>
 
 <footer>
-  <div class="container">
-     <div class="footer-logo">Generalrealm</div>
+    <div class="container">
+        <div class="footer-logo">Generalrealm</div>
 
-     <div class="footer-social-">
-        <ul class="footersocial">
-            <li><a href="https://facebook.com/Generalrealm" target="_blank" rel="noopener noreferrer"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href="https://twitter.com/Generalrealm" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                    <li><a href="https://instagram.com/Generalrealm" target="_blank" rel="noopener noreferrer"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                    <li><a href="https://linkedin.com/company/Generalrealm" target="_blank" rel="noopener noreferrer"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-       </ul>
-     </div>
+        <div class="footer-social-">
+            <ul class="footersocial">
+                <li><a href="https://facebook.com/Generalrealm" target="_blank" rel="noopener noreferrer" aria-label="Generalrealm on Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="https://twitter.com/Generalrealm" target="_blank" rel="noopener noreferrer" aria-label="Generalrealm on Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="https://instagram.com/Generalrealm" target="_blank" rel="noopener noreferrer" aria-label="Generalrealm on Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                <li><a href="https://linkedin.com/company/Generalrealm" target="_blank" rel="noopener noreferrer" aria-label="Generalrealm on LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
 
-     <div class="footer-links">
-       <ul>
-         <li><a href="https://eighthbrain.com">Home</a></li>
-         <li><a href="portfolio">Portfolio</a></li>
-         <li><a href="team">Team</a></li>
-         <li><a href="values">Values</a></li>
-         <li><a href="about">About</a></li>
-         <li><a href="blog">Blog</a></li>
-       </ul>
-     </div>
+        <div class="footer-links">
+            <ul>
+                <li><a href="https://www.generalrealm.com">Home</a></li>
+                <li><a href="portfolio">Portfolio</a></li>
+                <li><a href="team">Team</a></li>
+                <li><a href="values">Values</a></li>
+                <li><a href="about">About</a></li>
+                <li><a href="blog">Blog</a></li>
+            </ul>
+        </div>
 
-    <div class="footer-contact-info">
-       <p>©2024 Generalrealm | All Rights Reserved.</p>
+        <div class="footer-contact-info">
+            <p>©2026 Generalrealm | All Rights Reserved.</p>
+        </div>
     </div>
-  </div>
 </footer>
 
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.css" integrity="sha512-LKG0Zi6duJ5mwncLtQVchN0iF8fWmcxApuX9pqGq7ITgwQDWR9EqZFsrV9TXfE9pPRa1J6GVnsBl7gKxAyllaA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+<!-- Mobile Nav Toggle -->
 <script>
-var jq9=jQuery.noConflict();
-jq9(document).ready(function(){
-  jq9(".header__toggle").click(function(){
-      jq9(this).toggleClass("active");
-      jq9(".nav").toggleClass("viewable");
-  });
-
-  jq9('.logoslider').slick({
-dots: false,
-arrows: true,
-infinite: true,
-speed: 300,
-slidesToShow: 4,
-slidesToScroll: 1,
-centerMode: false,
-prevArrow:"<a class='slick-prev pull-left'><i class='fa fa-angle-left' aria-hidden='true'></i></a>",
-nextArrow:"<a class='slick-next pull-right'><i class='fa fa-angle-right' aria-hidden='true'></i></a>",
-//centerPadding: '60px',
-responsive: [
-  {
-    breakpoint: 1024,
-    settings: {
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      infinite: true,
-      dots: false
-    }
-  },
-  {
-    breakpoint: 600,
-    settings: {
-      slidesToShow: 2,
-      slidesToScroll: 1
-    }
-  },
-  {
-    breakpoint: 480,
-    settings: {
-      slidesToShow: 1,
-      slidesToScroll: 1
-    }
-  }
-  // You can unslick at a given breakpoint now by adding:
-  // settings: "unslick"
-  // instead of a settings object
-]
+var jq9 = jQuery.noConflict();
+jq9(document).ready(function () {
+    jq9(".header__toggle").click(function () {
+        jq9(this).toggleClass("active");
+        jq9(".nav").toggleClass("viewable");
+    });
 });
-
-});
-
 </script>
 
+<!-- Star Animation -->
 <script>
 !(function (e) {
     function t(r) {
@@ -279,19 +248,10 @@ responsive: [
             t.o(e, n) || Object.defineProperty(e, n, { configurable: !1, enumerable: !0, get: r });
         }),
         (t.n = function (e) {
-            var n =
-                e && e.__esModule
-                    ? function () {
-                          return e.default;
-                      }
-                    : function () {
-                          return e;
-                      };
+            var n = e && e.__esModule ? function () { return e.default; } : function () { return e; };
             return t.d(n, "a", n), n;
         }),
-        (t.o = function (e, t) {
-            return Object.prototype.hasOwnProperty.call(e, t);
-        }),
+        (t.o = function (e, t) { return Object.prototype.hasOwnProperty.call(e, t); }),
         (t.p = ""),
         t((t.s = 0));
 })([
@@ -299,116 +259,91 @@ responsive: [
         "use strict";
         (function (e) {
             var t = (function () {
-                    function e(e, t) {
-                        for (var n = 0; n < t.length; n++) {
-                            var r = t[n];
-                            (r.enumerable = r.enumerable || !1), (r.configurable = !0), "value" in r && (r.writable = !0), Object.defineProperty(e, r.key, r);
-                        }
+                function e(e, t) {
+                    for (var n = 0; n < t.length; n++) {
+                        var r = t[n];
+                        (r.enumerable = r.enumerable || !1), (r.configurable = !0), "value" in r && (r.writable = !0), Object.defineProperty(e, r.key, r);
                     }
-                    return function (t, n, r) {
-                        return n && e(t.prototype, n), r && e(t, r), t;
-                    };
-                })(),
-                r = n(2),
-              //  i = (0, n(3).detect)(),
-                o =
-                    (document.querySelector(".cursor--small"),
-                    document.querySelector(".cursor--canvas"),
-                    function () {
-                        for (var e = ["#176ab6", "#fb9b39"], n = 0; n < 98; n++) e.push("#fff");
-                        var r = document.querySelector("canvas.stars");
-                        if (null != r) {
-                            var i = function () {
-                                for (var e = 0; e < 100; e++) l.push(new u());
-                            };
-                            (r.width = innerWidth),
-                                (r.height = innerHeight),
-                                addEventListener("resize", function () {
-                                    (r.width = innerWidth), (r.height = innerHeight), (l = []), i();
-                                }),
-                                (r.style.background = "#000");
-                            var o = r.getContext("2d"),
-                                a = function (e, t) {
-                                    return Math.floor(Math.random() * (e - t) + t);
-                                },
-                                s = o.createRadialGradient(r.width / 2, 3 * r.height, r.height, r.width / 2, r.height, 4 * r.height);
-                            s.addColorStop(0, "#000"), s.addColorStop(0.4, "#0e0e0e"), s.addColorStop(0.8, "#0e0e0e"), s.addColorStop(1, "#000");
-                            var u = (function () {
-                                    function n(t, i, o, s) {
-                                        !(function (e, t) {
-                                            if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
-                                        })(this, n),
-                                            (this.x = t || a(0, r.width)),
-                                            (this.y = i || a(0, r.height)),
-                                            (this.radius = o || 1.1 * Math.random()),
-                                            (this.color = s || e[a(0, e.length)]),
-                                            (this.dy = 0.3 * -Math.random());
-                                    }
-                                    return (
-                                        t(n, [
-                                            {
-                                                key: "draw",
-                                                value: function () {
-                                                    o.beginPath(),
-                                                        o.arc(this.x, this.y, this.radius, 0, 1 * Math.PI),
-                                                        (o.shadowBlur = a(3, 15)),
-                                                        (o.shadowColor = this.color),
-                                                        (o.strokeStyle = this.color),
-                                                        (o.fillStyle = "rgba( 255, 255, 255, .5)"),
-                                                        o.fill(),
-                                                        o.stroke(),
-                                                        o.closePath();
-                                                },
-                                            },
-                                            {
-                                                key: "update",
-                                                value: function () {
-                                                    var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [];
-                                                    this.y - this.radius < 0 && this.createNewStar(e), (this.x += this.dy), this.draw();
-                                                },
-                                            },
-                                            {
-                                                key: "createNewStar",
-                                                value: function () {
-                                                    var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [],
-                                                        t = e.indexOf(this);
-                                                    e.splice(t, 1), e.push(new n(!1, r.height + 5));
-                                                },
-                                            },
-                                        ]),
-                                        n
-                                    );
-                                })(),
-                                l = [];
-                            i(),
-                                (function e() {
-                                    requestAnimationFrame(e),
-                                        o.clearRect(0, 0, r.width, r.height),
-                                        (o.fillStyle = s),
-                                        o.fillRect(0, 0, r.width, r.height),
-                                        l.forEach(function (e) {
-                                            return e.update(l);
-                                        });
-                                })();
-                        }
-                    });
+                }
+                return function (t, n, r) { return n && e(t.prototype, n), r && e(t, r), t; };
+            })(),
+            r = n(2),
+            o = (document.querySelector(".cursor--small"), document.querySelector(".cursor--canvas"),
+                function () {
+                    for (var e = ["#176ab6", "#fb9b39"], n = 0; n < 98; n++) e.push("#fff");
+                    var r = document.querySelector("canvas.stars");
+                    if (null != r) {
+                        var i = function () { for (var e = 0; e < 100; e++) l.push(new u()); };
+                        (r.width = innerWidth), (r.height = innerHeight),
+                            addEventListener("resize", function () { (r.width = innerWidth), (r.height = innerHeight), (l = []), i(); }),
+                            (r.style.background = "#000");
+                        var o = r.getContext("2d"),
+                            a = function (e, t) { return Math.floor(Math.random() * (e - t) + t); },
+                            s = o.createRadialGradient(r.width / 2, 3 * r.height, r.height, r.width / 2, r.height, 4 * r.height);
+                        s.addColorStop(0, "#000"), s.addColorStop(0.4, "#0e0e0e"), s.addColorStop(0.8, "#0e0e0e"), s.addColorStop(1, "#000");
+                        var u = (function () {
+                            function n(t, i, o, s) {
+                                !(function (e, t) { if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function"); })(this, n),
+                                    (this.x = t || a(0, r.width)), (this.y = i || a(0, r.height)),
+                                    (this.radius = o || 1.1 * Math.random()), (this.color = s || e[a(0, e.length)]),
+                                    (this.dy = 0.3 * -Math.random());
+                            }
+                            return t(n, [{
+                                key: "draw", value: function () {
+                                    o.beginPath(), o.arc(this.x, this.y, this.radius, 0, 1 * Math.PI),
+                                        (o.shadowBlur = a(3, 15)), (o.shadowColor = this.color),
+                                        (o.strokeStyle = this.color), (o.fillStyle = "rgba(255,255,255,.5)"),
+                                        o.fill(), o.stroke(), o.closePath();
+                                }
+                            }, {
+                                key: "update", value: function () {
+                                    var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [];
+                                    this.y - this.radius < 0 && this.createNewStar(e), (this.x += this.dy), this.draw();
+                                }
+                            }, {
+                                key: "createNewStar", value: function () {
+                                    var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [],
+                                        t = e.indexOf(this);
+                                    e.splice(t, 1), e.push(new n(!1, r.height + 5));
+                                }
+                            }]), n;
+                        })(),
+                        l = [];
+                        i(),
+                            (function e() {
+                                requestAnimationFrame(e), o.clearRect(0, 0, r.width, r.height),
+                                    (o.fillStyle = s), o.fillRect(0, 0, r.width, r.height),
+                                    l.forEach(function (e) { return e.update(l); });
+                            })();
+                    }
+                });
             document.addEventListener("DOMContentLoaded", function () {
                 document.body.classList.add("browser-"),
-
                     o(),
                     document.body.classList.add("page-loaded"),
-                    setTimeout(function () {
-                                document.body.classList.remove("page-loaded");
-                            }, 600);
-                    }, 300);
-            })
-
+                    setTimeout(function () { document.body.classList.remove("page-loaded"); }, 600);
+            }, 300);
         }.call(t, n(1)));
     },
-function (e, t, n) {  },function (e, t) { },
+    function (e, t, n) { },
+    function (e, t) { },
 ]);
-
 </script>
+
+<!-- Screen reader only utility (add to your style.css if not already there) -->
+<style>
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+}
+</style>
 
 </body>
 </html>
