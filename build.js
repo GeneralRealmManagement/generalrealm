@@ -1,6 +1,7 @@
 /**
  * build.js — Static blog generator for Cloudflare Pages
  * Fetches posts from WordPress REST API, generates /blog pages.
+ * Supports Yoast SEO meta (falls back to post title/excerpt if not set).
  *
  * Repo layout:
  *   /                ← existing static site (index.html, style.css, assets/…)
@@ -43,13 +44,16 @@ const stripTags = h => h.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
 const render = (tpl, vars) => tpl.replace(/\{\{(\w+)\}\}/g, (_, k) => vars[k] ?? '');
 
 function postVars(post) {
+  const yoast = post.yoast_head_json || {};
   return {
     title: post.title.rendered,
+    seoTitle: yoast.title || `${post.title.rendered} - EighthBrain`,
+    seoDesc: yoast.description || stripTags(post.excerpt.rendered).slice(0, 160),
     slug: post.slug,
     url: `/blog/${post.slug}/`,
     date: fmtDate(post.date),
     author: authorName(post),
-    image: featuredImage(post),
+    image: yoast.og_image?.[0]?.url || featuredImage(post),
     excerpt: stripTags(post.excerpt.rendered).slice(0, 160),
     content: post.content.rendered,
     canonical: `${SITE_URL}/blog/${post.slug}/`,
