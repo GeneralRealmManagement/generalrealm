@@ -1,69 +1,93 @@
 /**
- * build.js — Static blog generator for Cloudflare Pages
- * Fetches posts from WordPress REST API, generates /blog pages.
- * Supports Yoast SEO meta (falls back to post title/excerpt if not set).
+ * build.js — Static blog generator for Cloudflare Pages (Pages CMS version)
+ * Reads markdown posts from content/posts/, generates /blog pages.
  *
  * Repo layout:
- *   /                ← existing static site (index.html, style.css, assets/…)
+ *   /                       ← existing static site (index.html, style.css, assets/…)
+ *   /content/posts/*.md     ← blog posts (managed via Pages CMS)
  *   /templates/blog-list.html
  *   /templates/blog-post.html
- *   build.js
+ *   /.pages.yml             ← Pages CMS config
+ *   build.js, package.json
  *
- * Cloudflare Pages → build command: node build.js   output dir: dist
- * Env var: WP_API_URL = https://your-wp-server.com/wp-json/wp/v2
- * Requires Node 18+.
+ * Cloudflare Pages → build command: npm install && node build.js
+ *                    output dir: dist
+ * No environment variables needed. Requires Node 18+.
  */
 
 const fs = require('fs');
 const path = require('path');
+const { marked } = require('marked');
 
-const WP_API = process.env.WP_API_URL || 'https://YOUR-WP-SERVER.com/wp-json/wp/v2';
 const SITE_URL = 'https://generalrealm.com';
 const PLACEHOLDER_IMG = '/assets/blog-placeholder.jpg';
+const POSTS_DIR = path.join(__dirname, 'content/posts');
 const OUT = path.join(__dirname, 'dist');
 
-async function fetchAllPosts() {
-  let posts = [], page = 1;
-  while (true) {
-    const res = await fetch(`${WP_API}/posts?per_page=100&page=${page}&_embed`);
-    if (res.status === 400) break;
-    if (!res.ok) throw new Error(`WP API error ${res.status}: ${await res.text()}`);
-    posts = posts.concat(await res.json());
-    const totalPages = parseInt(res.headers.get('x-wp-totalpages') || '1', 10);
-    if (page >= totalPages) break;
-    page++;
+/* ── Minimal frontmatter parser (flat key: value pairs) ───────── */
+function parseFrontmatter(raw) {
+  const m = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
+  if (!m) return { data: {}, body: raw };
+  const data = {};
+  for (const line of m[1].split(/\r?\n/)) {
+    const kv = line.match(/^(\w[\w-]*):\s*(.*)$/);
+    if (!kv) continue;
+    let val = kv[2].trim();
+    if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+      val = val.slice(1, -1);
+    }
+    if (val === 'true') val = true;
+    else if (val === 'false') val = false;
+    data[kv[1]] = val;
   }
-  return posts;
+  return { data, body: m[2] };
 }
 
-const fmtDate = iso => new Date(iso).toLocaleDateString('en-US',
+const slugify = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+const fmtDate = d => new Date(d).toLocaleDateString('en-US',
   { year: 'numeric', month: 'long', day: 'numeric' });
-const featuredImage = p => p._embedded?.['wp:featuredmedia']?.[0]?.source_url || PLACEHOLDER_IMG;
-const authorName = p => p._embedded?.author?.[0]?.name || 'Admin';
 const stripTags = h => h.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
 const render = (tpl, vars) => tpl.replace(/\{\{(\w+)\}\}/g, (_, k) => vars[k] ?? '');
 
+function loadPosts() {
+  if (!fs.existsSync(POSTS_DIR)) return [];
+  return fs.readdirSync(POSTS_DIR)
+    .filter(f => f.endsWith('.md'))
+    .map(file => {
+      const raw = fs.readFileSync(path.join(POSTS_DIR, file), 'utf8');
+      const { data, body } = parseFrontmatter(raw);
+      return { file, data, body };
+    })
+    .filter(p => p.data.draft !== true)
+    .sort((a, b) => new Date(b.data.date || 0) - new Date(a.data.date || 0));
+}
+
 function postVars(post) {
-  const yoast = post.yoast_head_json || {};
+  const d = post.data;
+  const title = d.title || path.basename(post.file, '.md');
+  const slug = slugify(d.slug || path.basename(post.file, '.md').replace(/^\d{4}-\d{2}-\d{2}-/, ''));
+  const contentHtml = marked.parse(post.body || '');
+  const plain = stripTags(contentHtml);
   return {
-    title: post.title.rendered,
-    seoTitle: yoast.title || `${post.title.rendered} - EighthBrain`,
-    seoDesc: yoast.description || stripTags(post.excerpt.rendered).slice(0, 160),
-    slug: post.slug,
-    url: `/blog/${post.slug}/`,
-    date: fmtDate(post.date),
-    author: authorName(post),
-    image: yoast.og_image?.[0]?.url || featuredImage(post),
-    excerpt: stripTags(post.excerpt.rendered).slice(0, 160),
-    content: post.content.rendered,
-    canonical: `${SITE_URL}/blog/${post.slug}/`,
+    title,
+    seoTitle: d.seo_title || `${title} - EighthBrain`,
+    seoDesc: d.description || plain.slice(0, 160),
+    slug,
+    url: `/blog/${slug}/`,
+    date: d.date ? fmtDate(d.date) : '',
+    author: d.author || 'Admin',
+    image: d.image || PLACEHOLDER_IMG,
+    excerpt: d.description || plain.slice(0, 160),
+    content: contentHtml,
+    canonical: `${SITE_URL}/blog/${slug}/`,
   };
 }
 
 function copyDir(src, dest) {
   fs.mkdirSync(dest, { recursive: true });
   for (const e of fs.readdirSync(src, { withFileTypes: true })) {
-    if (['dist', 'node_modules', '.git', 'templates', 'build.js', 'blog.html'].includes(e.name)) continue;
+    if (['dist', 'node_modules', '.git', 'templates', 'content',
+         'build.js', 'blog.html', 'package.json', 'package-lock.json'].includes(e.name)) continue;
     const s = path.join(src, e.name), d = path.join(dest, e.name);
     e.isDirectory() ? copyDir(s, d) : fs.copyFileSync(s, d);
   }
@@ -76,10 +100,9 @@ function extractBlock(tpl, name) {
   return m[1];
 }
 
-async function main() {
-  console.log('Fetching posts from WordPress…');
-  const posts = await fetchAllPosts();
-  console.log(`Fetched ${posts.length} posts.`);
+function main() {
+  const posts = loadPosts();
+  console.log(`Found ${posts.length} published posts.`);
 
   copyDir(__dirname, OUT);
 
@@ -101,12 +124,13 @@ async function main() {
   fs.writeFileSync(path.join(OUT, 'blog/index.html'), listHtml);
 
   for (const post of posts) {
-    const dir = path.join(OUT, 'blog', post.slug);
+    const vars = postVars(post);
+    const dir = path.join(OUT, 'blog', vars.slug);
     fs.mkdirSync(dir, { recursive: true });
-    fs.writeFileSync(path.join(dir, 'index.html'), render(postTpl, postVars(post)));
+    fs.writeFileSync(path.join(dir, 'index.html'), render(postTpl, vars));
   }
 
   console.log(`Done: /blog + ${posts.length} post pages generated in dist/.`);
 }
 
-main().catch(err => { console.error(err); process.exit(1); });
+main();
