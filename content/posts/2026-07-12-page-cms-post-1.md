@@ -8,7 +8,7 @@ draft: false
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is an intro paragraph with a [sample link](https://generalrealm.com) and some **bold text** plus *italic text*.
 
-## This Is a Heading Two
+## This Is a Heading Three
 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo.
 
