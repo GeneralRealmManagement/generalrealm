@@ -6,29 +6,30 @@ image: /assets/uploads/images (1).png
 seo_title: SEO title
 draft: false
 ---
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is an intro paragraph with a <a href="https://generalrealm.com">sample link</a> and some <strong>bold text</strong> plus <em>italic text</em>.</p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is an intro paragraph with a [sample link](https://generalrealm.com) and some **bold text** plus *italic text*.
 
-<h2>This Is a Heading Two</h2>
-<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo.</p>
+## This Is a Heading Two
 
-<img src="https://placehold.co/1200x600/1a1a2e/ffffff?text=Placeholder+Image" alt="Placeholder image" />
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo.
 
-<h3>This Is a Heading Three</h3>
-<p>Here is an unordered list:</p>
-<ul>
-  <li>Placeholder item one</li>
-  <li>Placeholder item two</li>
-  <li>Placeholder item three</li>
-</ul>
+![Placeholder image](https://placehold.co/1200x600/1a1a2e/ffffff?text=Placeholder+Image)
 
-<p>And a numbered list:</p>
-<ol>
-  <li>First step goes here</li>
-  <li>Second step goes here</li>
-  <li>Third step goes here</li>
-</ol>
+### This Is a Heading Three
 
-<blockquote><p>This is a blockquote for testing quoted text styling in the post template.</p></blockquote>
+Here is an unordered list:
 
-<h2>Final Section Heading</h2>
-<p>Quis autem vel
+- Placeholder item one
+- Placeholder item two
+- Placeholder item three
+
+And a numbered list:
+
+1. First step goes here
+2. Second step goes here
+3. Third step goes here
+
+> This is a blockquote for testing quoted text styling in the post template.
+
+## Final Section Heading
+
+Quis autem vel
