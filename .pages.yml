@@ -1,1 +1,44 @@
-heelo
+media:
+  input: assets/uploads
+  output: /assets/uploads
+
+content:
+  - name: posts
+    label: Blog Posts
+    type: collection
+    path: content/posts
+    view:
+      fields: [title, author, date]
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+        required: true
+      - name: author
+        label: Author
+        type: string
+        default: Admin
+      - name: image
+        label: Featured Image
+        type: image
+      - name: seo_title
+        label: SEO Title (optional, for Google)
+        type: string
+      - name: description
+        label: SEO Description (optional, for Google)
+        type: text
+      - name: draft
+        label: Draft (hide from site)
+        type: boolean
+        default: false
+      - name: body
+        label: Content
+        type: rich-text
