@@ -2,7 +2,7 @@
 title: Post test from login.generalrealm.com url
 date: 2026-07-17
 author: Admin
-image: /assets/uploads/images (1)-1.png
+image: /assets/uploads/images (2).png
 draft: false
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is an intro paragraph with a ++[sample link](https://generalrealm.com/)++ and some **bold text** plus *italic text*.
