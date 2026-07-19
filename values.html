@@ -1,237 +1,1083 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta Tags -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover the values and vision of EighthBrain, a venture capital firm backing bold ideas to shape the future.">
-    <meta name="keywords" content="EighthBrain, venture capital, values, innovation, collaboration, startups, investment">
-    <meta name="author" content="EighthBrain">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Values — GeneralRealm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabinet+Grotesk:wght@300;400;500;700;800;900&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
 
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="Our Values - EighthBrain | Empowering Bold Visionaries">
-    <meta property="og:description" content="Discover the values and vision of EighthBrain, a venture capital firm backing bold ideas to shape the future.">
-    <meta property="og:image" content="https://eighthbrain.com/assets/EighthBrain-Values.png">
-    <meta property="og:url" content="https://eighthbrain.com/values">
-    <meta name="twitter:card" content="summary_large_image">
+/* ───────────────────────────────
+   TOKENS
+─────────────────────────────── */
+:root {
+  --bg:      #faf7f2;
+  --bg2:     #f2ede4;
+  --ink:     #1c1510;
+  --ink2:    #4a3f35;
+  --muted:   #8a7d72;
+  --c1:      #c8a8f8;   /* lavender */
+  --c2:      #f7a8cc;   /* pink     */
+  --c3:      #80e8ff;   /* cyan     */
+  --c4:      #f7d86c;   /* gold     */
+  --c5:      #a8f0d8;   /* mint     */
+  --c6:      #ffb380;   /* peach    */
+  --c7:      #b8f080;   /* lime     */
+  --deep:    #1c1510;
+  --F:  'Bebas Neue', sans-serif;
+  --FS: 'Instrument Serif', serif;
+  --FB: 'Cabinet Grotesk', sans-serif;
+  --FH: 'Instrument Serif', serif;
+}
 
-    <!-- Canonical Tag -->
-    <link rel="canonical" href="https://eighthbrain.com/values">
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
-    <!-- Preconnect and Fonts -->
-    <link rel="preconnect" href="https://ajax.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+body {
+  font-family: var(--FB);
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+  cursor: none;
+}
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+/* paper texture */
+body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 9000;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+}
 
-    <!-- Title -->
-    <title>Our Values - EighthBrain | Empowering Bold Visionaries</title>
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: var(--c2); border-radius: 2px; }
 
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "EighthBrain",
-        "url": "https://eighthbrain.com",
-        "logo": "https://eighthbrain.com/assets/logo.png",
-        "description": "EighthBrain is a venture capital firm empowering bold visionaries to reshape the future through innovation and collaboration."
-    }
-    </script>
+/* ── CURSOR ── */
+.cursor {
+  position: fixed; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--c2); pointer-events: none; z-index: 9990;
+  transform: translate(-50%,-50%);
+  transition: transform 0.1s, background 0.2s;
+  mix-blend-mode: multiply;
+}
+.cursor-ring {
+  position: fixed; width: 38px; height: 38px; border-radius: 50%;
+  border: 2px solid rgba(200,168,248,0.5); pointer-events: none; z-index: 9989;
+  transform: translate(-50%,-50%);
+  transition: width 0.3s, height 0.3s, transform 0.3s ease;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.4rem 3.5rem;
+  background: rgba(250,247,242,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(28,21,16,0.08);
+}
+.nav-logo {
+  font-family: var(--F); font-size: 1.4rem; letter-spacing: 0.08em;
+  text-decoration: none; color: var(--ink);
+  display: flex; align-items: center; gap: 0.7rem;
+}
+.nav-pip {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff, var(--c1), #8040d0);
+  box-shadow: 0 0 10px rgba(200,168,248,0.7);
+  animation: pipPulse 2.2s ease-in-out infinite;
+}
+@keyframes pipPulse {
+  0%,100% { box-shadow: 0 0 6px rgba(200,168,248,0.5); }
+  50%      { box-shadow: 0 0 18px rgba(200,168,248,0.9), 0 0 34px rgba(200,168,248,0.4); }
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  color: var(--ink2); text-decoration: none; font-size: 0.82rem;
+  font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  transition: color 0.2s; position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 2px;
+  background: var(--c2); transform: scaleX(0); transform-origin: left; transition: transform 0.25s;
+  border-radius: 2px;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a.active { color: var(--ink); }
+.nav-links a.active::after, .nav-links a:hover::after { transform: scaleX(1); }
+.nav-apply {
+  font-family: var(--FB); font-weight: 800; font-size: 0.8rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--ink); color: var(--bg);
+  border: none; border-radius: 100px; padding: 0.6rem 1.4rem;
+  cursor: none; transition: transform 0.2s, background 0.2s;
+  text-decoration: none; display: inline-block;
+}
+.nav-apply:hover { background: var(--c1); color: var(--ink); transform: scale(1.05) translateY(-1px); }
+
+/* ── HERO ── */
+.hero {
+  padding: 10rem 3.5rem 5rem;
+  position: relative; overflow: hidden;
+  min-height: 75vh;
+  display: flex; align-items: center;
+}
+
+/* big faint bg text */
+.hero-bg-word {
+  position: absolute;
+  font-family: var(--F);
+  font-size: clamp(16rem, 28vw, 32rem);
+  letter-spacing: -0.02em; line-height: 1;
+  color: rgba(28,21,16,0.04);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  pointer-events: none; user-select: none;
+  z-index: 0;
+}
+
+/* doodle decorations */
+.doodle {
+  position: absolute; pointer-events: none;
+  font-family: var(--FH); font-style: italic;
+  animation: doodleWiggle 4s ease-in-out infinite alternate;
+}
+@keyframes doodleWiggle {
+  from { transform: rotate(-3deg) scale(1); }
+  to   { transform: rotate(3deg) scale(1.04); }
+}
+
+/* d1 (🪐) and d3 (💫) removed — the mascot IS the cosmic element now.
+   Keeping ✦ on the lower-left for typographic balance, and the wavy ~~~ accent. */
+.d2 { bottom: 20%; left: 6%; font-size: 3rem; animation-delay:-1.5s; }
+.d4 { top: 15%; left: 38%; font-size: 2rem; color: var(--c2); opacity: 0.4; animation-delay:-0.8s; }
+
+/* squiggly underline SVG */
+.squiggle { display: inline-block; position: relative; }
+.squiggle svg {
+  position: absolute; bottom: -8px; left: 0; width: 100%; height: 12px;
+  overflow: visible;
+}
+.squiggle path { stroke: var(--c2); stroke-width: 3; fill: none; stroke-linecap: round; }
+
+.hero-inner {
+  position: relative; z-index: 2;
+  max-width: 760px;
+}
+
+.hero-kicker {
+  display: inline-block;
+  font-family: var(--FH); font-style: italic; font-size: 1.5rem; font-weight: 700;
+  color: var(--ink); transform: rotate(-1.5deg);
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.6s 0.1s both;
+}
+
+.hero-h1 {
+  font-family: var(--F);
+  font-size: clamp(5rem, 10vw, 10rem);
+  letter-spacing: 0.01em; line-height: 0.88;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.7s 0.2s both;
+}
+.hero-h1 .color-pop {
+  background: linear-gradient(120deg, var(--c1) 0%, var(--c2) 60%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero-h1 .serif-bit {
+  font-family: var(--FS); font-style: italic; font-size: 0.72em;
+  background: none; -webkit-text-fill-color: var(--ink);
+}
+
+.hero-sub {
+  font-size: 1.15rem; line-height: 1.75; color: var(--ink2);
+  max-width: 520px; margin-bottom: 2.5rem;
+  animation: fadeUp 0.7s 0.35s both;
+}
+
+.hero-sub strong { color: var(--ink); font-weight: 700; }
+
+.founded-tag {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--FH); font-style: italic; font-size: 1rem; font-weight: 600;
+  color: var(--ink);
+  animation: fadeUp 0.7s 0.5s both;
+}
+.founded-tag::before { content: '↳'; color: var(--c1); }
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(22px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ── COSMIC ORACLE (mascot, hero placement) ──
+   Floats in the upper-right of the hero, replacing the 🪐 + 💫 doodles.
+   She's the real cosmic element. Aura warms her landing on cream paper.
+   Scale tuned so the headline keeps its dominance. */
+.oracle {
+  position: absolute;
+  top: 50%;
+  right: 4.5%;
+  transform: translateY(-50%);
+  width: clamp(280px, 32vw, 420px);
+  aspect-ratio: 7 / 8;
+  z-index: 3;
+  pointer-events: none;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  animation: oracleEnter 1.1s cubic-bezier(0.34,1.4,0.64,1) 0.55s forwards;
+}
+@keyframes oracleEnter {
+  from { opacity: 0; transform: translate(20px, calc(-50% + 20px)) scale(0.94); }
+  to   { opacity: 1; transform: translate(0, -50%) scale(1); }
+}
+
+/* warm aura behind her on the cream paper */
+.oracle-aura {
+  position: absolute; inset: -6%;
+  background:
+    radial-gradient(circle at 50% 50%,
+      rgba(247,168,204,0.32) 0%,
+      rgba(200,168,248,0.22) 32%,
+      rgba(128,232,255,0.12) 58%,
+      transparent 75%);
+  filter: blur(10px);
+  z-index: 0;
+  animation: oracleAura 7s ease-in-out infinite alternate;
+}
+@keyframes oracleAura {
+  from { transform: scale(0.96) rotate(-2deg); opacity: 0.85; }
+  to   { transform: scale(1.06) rotate(2deg);  opacity: 1;    }
+}
+
+/* the mascot illustration */
+.oracle-img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 22px 32px rgba(28,21,16,0.16))
+          drop-shadow(0 0 28px rgba(200,168,248,0.32));
+  animation: oracleFloat 6s ease-in-out infinite alternate;
+  will-change: transform, translate;
+}
+@keyframes oracleFloat {
+  from { transform: translateY(0)    rotate(-1.4deg); }
+  to   { transform: translateY(-14px) rotate(1.4deg); }
+}
+
+/* extra orbital planets that scatter into the hero whitespace */
+.oracle-orbit {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+  will-change: transform, translate;
+}
+.oracle-orbit.o1 { /* lavender — top-left of mascot, drifting toward headline */
+  width: 16px; height: 16px;
+  left: -10%; top: 8%;
+  background: radial-gradient(circle at 35% 35%, #fff, var(--c1) 60%, #8040d0);
+  box-shadow: 0 0 16px rgba(200,168,248,0.7);
+  animation: orbitDriftA 5s ease-in-out infinite alternate;
+}
+.oracle-orbit.o2 { /* cyan — top-right edge */
+  width: 12px; height: 12px;
+  right: -4%; top: 4%;
+  background: radial-gradient(circle at 35% 35%, #fff, var(--c3) 60%, #2080a0);
+  box-shadow: 0 0 14px rgba(128,232,255,0.7);
+  animation: orbitDriftB 4.4s ease-in-out infinite alternate;
+}
+.oracle-orbit.o3 { /* gold mini — mid-right */
+  width: 9px; height: 9px;
+  right: -8%; top: 48%;
+  background: radial-gradient(circle at 35% 35%, #fff, var(--c4) 60%, #b08020);
+  box-shadow: 0 0 10px rgba(247,216,108,0.7);
+  animation: orbitDriftC 5.6s ease-in-out infinite alternate;
+}
+.oracle-orbit.o4 { /* pink — bottom-left, drifting in */
+  width: 14px; height: 14px;
+  left: -8%; bottom: 18%;
+  background: radial-gradient(circle at 35% 35%, #fff, var(--c2) 60%, #c04080);
+  box-shadow: 0 0 14px rgba(247,168,204,0.7);
+  animation: orbitDriftD 4.8s ease-in-out infinite alternate;
+}
+@keyframes orbitDriftA { from{transform:translate(0,0)} to{transform:translate(-8px,10px)} }
+@keyframes orbitDriftB { from{transform:translate(0,0)} to{transform:translate(10px,-6px)} }
+@keyframes orbitDriftC { from{transform:translate(0,0)} to{transform:translate(12px,4px)} }
+@keyframes orbitDriftD { from{transform:translate(0,0)} to{transform:translate(-10px,-8px)} }
+
+/* ── DIVIDER STRIP — featured quote ── */
+.strip {
+  background: var(--ink);
+  padding: 5.5rem 3.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+/* faint cosmic dots scattered behind the quote */
+.strip::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle 2px at 12% 30%, rgba(200,168,248,0.5) 0%, transparent 100%),
+    radial-gradient(circle 3px at 88% 70%, rgba(247,168,204,0.45) 0%, transparent 100%),
+    radial-gradient(circle 2px at 78% 22%, rgba(247,216,108,0.4) 0%, transparent 100%),
+    radial-gradient(circle 2px at 22% 75%, rgba(128,232,255,0.4) 0%, transparent 100%);
+  pointer-events: none;
+}
+.strip-quote {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.strip-text {
+  font-family: var(--FS);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.7rem, 3.6vw, 2.9rem);
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  color: var(--bg);
+}
+/* the key word — soft lavender accent, no marker, just color shift */
+.strip-key {
+  color: var(--c1);
+  font-style: italic;
+  position: relative;
+}
+.strip-key::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -0.05em;
+  height: 1px;
+  background: var(--c1);
+  opacity: 0.55;
+}
+.strip-byline {
+  font-family: var(--FH); font-style: italic;
+  font-size: 0.95rem;
+  color: rgba(250, 247, 242, 0.45);
+  margin-top: 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: 0.04em;
+}
+.strip-byline::before,
+.strip-byline::after {
+  content: '';
+  width: 22px; height: 1px;
+  background: rgba(250, 247, 242, 0.3);
+}
+@media (max-width: 900px) {
+  .strip { padding: 4rem 1.5rem; }
+}
+
+/* ── VALUES SECTION ── */
+.values-section {
+  padding: 7rem 3.5rem 2rem;
+  position: relative;
+}
+
+/* scattered heading */
+.values-head {
+  text-align: center; margin-bottom: 6rem; position: relative;
+}
+.values-head-label {
+  font-family: var(--FH); font-style: italic; font-size: 1.2rem; font-weight: 600;
+  color: var(--ink); margin-bottom: 0.5rem; display: block;
+  transform: rotate(-2deg);
+}
+.values-head h2 {
+  font-family: var(--F);
+  font-size: clamp(3rem, 6vw, 6.5rem);
+  letter-spacing: 0.02em; line-height: 0.92;
+  color: var(--ink);
+}
+.values-head h2 em {
+  font-family: var(--FS); font-style: italic; font-size: 0.82em;
+  color: #c8a8f8; -webkit-text-fill-color: #c8a8f8;
+}
+.values-head-note {
+  font-family: var(--FH); font-style: italic; font-size: 1rem; font-weight: 600;
+  color: var(--muted); margin-top: 1rem;
+  transform: rotate(1deg); display: inline-block;
+}
+
+/* ── VALUES — EDITORIAL STRIPS ── */
+.values-list {
+  display: flex; flex-direction: column;
+  max-width: 1200px; margin: 0 auto;
+  position: relative;
+}
+
+/* one row = one value */
+.v-row {
+  display: grid;
+  grid-template-columns: minmax(180px, 260px) 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  padding: 4.5rem 1.5rem;
+  border-top: 1px solid rgba(28,21,16,0.14);
+  position: relative;
+  align-items: start;
+  transition: background 0.45s ease;
+}
+.v-row:last-child { border-bottom: 1px solid rgba(28,21,16,0.14); }
+
+/* asymmetric editorial rhythm — odd rows hug right, even rows hug left */
+.v-row:nth-child(even) { padding-left: clamp(2rem, 6vw, 6rem); }
+.v-row:nth-child(odd)  { padding-right: clamp(2rem, 6vw, 6rem); }
+
+/* hover — barely-there ink wash so the row feels live */
+.v-row:hover { background: rgba(28,21,16,0.02); }
+
+/* ── NUMBER (massive) + planet dot accent ── */
+.v-num {
+  font-family: var(--F);
+  font-size: clamp(5rem, 12vw, 11rem);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  position: relative;
+}
+.v-num::after {
+  content: '';
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  margin-top: 0.55em;
+  flex-shrink: 0;
+  background: currentColor;
+  box-shadow: 0 0 14px currentColor;
+  opacity: 0.9;
+  animation: numDot 4s ease-in-out infinite alternate;
+}
+@keyframes numDot {
+  from { transform: translateY(0) scale(1); }
+  to   { transform: translateY(-6px) scale(1.08); }
+}
+.v-row[data-c="gold"]     .v-num::after { color: #d4a82a; }
+.v-row[data-c="lavender"] .v-num::after { color: var(--c1); }
+.v-row[data-c="cyan"]     .v-num::after { color: #4ab8d4; }
+.v-row[data-c="pink"]     .v-num::after { color: var(--c2); }
+.v-row[data-c="mint"]     .v-num::after { color: #6acfa8; }
+
+/* ── CONTENT COLUMN ── */
+.v-content {
+  padding-top: 1.4rem;
+  max-width: 760px;
+}
+
+.v-title {
+  font-family: var(--F);
+  font-size: clamp(1.9rem, 3.4vw, 3rem);
+  letter-spacing: 0.015em;
+  line-height: 1.02;
+  margin-bottom: 0.9rem;
+  color: var(--ink);
+}
+
+.v-tagline {
+  font-family: var(--FH); font-style: italic;
+  font-size: 1.2rem; font-weight: 600;
+  color: var(--ink2);
+  margin-bottom: 1.3rem;
+  display: inline-block;
+  transform: rotate(-1.2deg);
+}
+
+.v-desc {
+  font-family: var(--FB);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--ink2);
+  max-width: 660px;
+}
+
+/* drifting cosmic dots in the section background — echoes mascot */
+.values-section { position: relative; overflow: hidden; }
+.values-section::before,
+.values-section::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.values-section::before {
+  width: 16px; height: 16px;
+  top: 14%; right: 5%;
+  background: radial-gradient(circle at 35% 35%, #fff, var(--c1) 60%, #8040d0);
+  box-shadow: 0 0 16px rgba(200,168,248,0.45);
+  animation: vDrift 6s ease-in-out infinite alternate;
+}
+.values-section::after {
+  width: 12px; height: 12px;
+  bottom: 9%; left: 6%;
+  background: radial-gradient(circle at 35% 35%, #fff, var(--c2) 60%, #c04080);
+  box-shadow: 0 0 14px rgba(247,168,204,0.45);
+  animation: vDrift 5.2s ease-in-out infinite alternate;
+}
+@keyframes vDrift {
+  from { transform: translate(0,0); }
+  to   { transform: translate(-12px, 14px); }
+}
+.values-list, .values-head { position: relative; z-index: 1; }
+
+/* ── MANIFESTO — EDITORIAL PULL-QUOTE ── */
+.manifesto {
+  padding: 5rem 3.5rem 7rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.manifesto-stage {
+  max-width: 1180px;
+  margin: 0 auto;
+  position: relative;
+  padding: 2rem 2rem 0;
+}
+
+/* Stamp / micro-badge for "north star" — replaces the centered label */
+.m-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 3;
+  transform: rotate(-2deg);
+}
+.m-badge-rule {
+  width: 36px; height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+}
+.m-badge-text {
+  font-family: var(--FB);
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.m-badge-star {
+  font-family: var(--FH); font-style: italic;
+  font-weight: 700;
+  color: var(--c2);
+  font-size: 1.3rem;
+  margin-left: 0.2rem;
+  display: inline-block;
+  animation: starSpin 8s linear infinite;
+  transform-origin: center;
+}
+@keyframes starSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* The quote — large serif italic, magazine-style */
+.m-quote {
+  position: relative;
+  z-index: 2;
+  font-family: var(--FS);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3.8vw, 3.2rem);
+  line-height: 1.22;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  max-width: 880px;
+  margin-bottom: 0;
+}
+
+/* Highlighter-marker effect on the key phrase */
+.m-highlight {
+  position: relative;
+  display: inline;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--ink);
+  background-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 58%,
+    rgba(247,216,108,0.85) 58%,
+    rgba(247,168,204,0.75) 100%
+  );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 0 0.12em;
+  /* slight skew on the highlight itself via box-decoration so it wraps lines cleanly */
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Floating cosmic dots — echoing the mascot's planet palette */
+.m-orbit {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+.m-orbit.mo1 {
+  width: 20px; height: 20px;
+  top: 6%; right: 8%;
+  background: radial-gradient(circle at 35% 35%, #fff, var(--c1) 60%, #8040d0);
+  box-shadow: 0 0 18px rgba(200,168,248,0.55);
+  animation: mDrift 5.4s ease-in-out infinite alternate;
+}
+.m-orbit.mo2 {
+  width: 13px; height: 13px;
+  top: 38%; right: 16%;
+  background: radial-gradient(circle at 35% 35%, #fff, var(--c2) 60%, #c04080);
+  box-shadow: 0 0 14px rgba(247,168,204,0.55);
+  animation: mDrift 4.6s ease-in-out infinite alternate;
+}
+.m-orbit.mo3 {
+  width: 16px; height: 16px;
+  bottom: 14%; left: 6%;
+  background: radial-gradient(circle at 35% 35%, #fff, var(--c4) 60%, #b08020);
+  box-shadow: 0 0 14px rgba(247,216,108,0.5);
+  animation: mDrift 6s ease-in-out infinite alternate;
+}
+.m-orbit.mo4 {
+  width: 11px; height: 11px;
+  top: 22%; left: 14%;
+  background: radial-gradient(circle at 35% 35%, #fff, var(--c3) 60%, #2080a0);
+  box-shadow: 0 0 14px rgba(128,232,255,0.55);
+  animation: mDrift 5s ease-in-out infinite alternate;
+}
+.m-orbit.mo5 {
+  width: 9px; height: 9px;
+  bottom: 28%; right: 4%;
+  background: radial-gradient(circle at 35% 35%, #fff, var(--c5) 60%, #4090a0);
+  box-shadow: 0 0 12px rgba(168,240,216,0.55);
+  animation: mDrift 4.2s ease-in-out infinite alternate;
+}
+@keyframes mDrift {
+  from { transform: translate(0,0); }
+  to   { transform: translate(10px, -12px); }
+}
+
+
+/* ── CTA — dark closing moment ── */
+.page-cta {
+  margin: 0 3.5rem;
+  border-radius: 24px;
+  background: #000;
+  border: none;
+  padding: 4rem 4rem;
+  display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* faint cosmic dots behind the CTA, echoing the strip moment */
+.page-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle 2px at 12% 28%, rgba(200,168,248,0.45) 0%, transparent 100%),
+    radial-gradient(circle 3px at 88% 70%, rgba(247,168,204,0.4) 0%, transparent 100%),
+    radial-gradient(circle 2px at 68% 22%, rgba(247,216,108,0.35) 0%, transparent 100%),
+    radial-gradient(circle 2px at 22% 78%, rgba(128,232,255,0.35) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.cta-text-chunk { position: relative; z-index: 1; }
+
+.cta-kicker {
+  font-family: var(--FH); font-style: italic; font-size: 1.1rem; font-weight: 400;
+  color: #fff; margin-bottom: 0.6rem; display: block;
+  transform: rotate(-1deg);
+  letter-spacing: 0.01em;
+}
+
+.cta-h {
+  font-family: var(--F); font-size: clamp(2.2rem, 4vw, 4rem);
+  letter-spacing: 0.02em; line-height: 1; color: var(--bg);
+  margin-bottom: 0.8rem;
+}
+
+.cta-p {
+  font-size: 0.95rem; color: rgba(250,247,242,0.7); line-height: 1.7;
+  max-width: 400px;
+}
+
+.cta-btns {
+  display: flex; flex-direction: column; gap: 0.8rem; align-items: flex-end;
+  position: relative; z-index: 1;
+}
+
+.btn-dark {
+  font-family: var(--FB); font-weight: 800; font-size: 0.85rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--bg); color: var(--ink);
+  border: none; border-radius: 100px; padding: 0.9rem 2rem;
+  cursor: none; text-decoration: none; display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.34,1.6,0.64,1), background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+.btn-dark:hover { transform: scale(1.06) rotate(-1deg); background: var(--c1); color: var(--ink); }
+
+.btn-light {
+  font-family: var(--FB); font-weight: 700; font-size: 0.82rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  background: transparent; color: rgba(250,247,242,0.75);
+  border: 2px solid rgba(250,247,242,0.25);
+  border-radius: 100px; padding: 0.75rem 1.8rem;
+  cursor: none; text-decoration: none; display: inline-block;
+  transition: all 0.2s; white-space: nowrap;
+}
+.btn-light:hover { border-color: var(--bg); color: var(--bg); transform: translateY(-2px); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid rgba(28,21,16,0.1);
+  padding: 2rem 3.5rem; margin-top: 5rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-brand {
+  font-family: var(--F); font-size: 1.2rem; letter-spacing: 0.1em;
+  color: var(--ink2); display: flex; align-items: center; gap: 0.6rem;
+}
+.footer-links { display: flex; gap: 2rem; list-style: none; }
+.footer-links a {
+  color: var(--muted); text-decoration: none; font-size: 0.8rem;
+  font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--ink); }
+.footer-copy { font-size: 0.75rem; color: var(--muted); }
+
+/* ── REVEAL ── */
+.reveal { opacity:0; transform:translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.rd1 { transition-delay: 0.08s; }
+.rd2 { transition-delay: 0.16s; }
+.rd3 { transition-delay: 0.24s; }
+.rd4 { transition-delay: 0.32s; }
+.rd5 { transition-delay: 0.40s; }
+
+/* ── RESPONSIVE ── */
+
+/* Medium screens — shrink mascot, tuck tighter to the right */
+@media (max-width: 1200px) {
+  .oracle { right: 2%; width: clamp(240px, 30vw, 340px); }
+}
+
+/* Tablet — push mascot further down and slightly behind text so headline owns it */
+@media (max-width: 1000px) {
+  .oracle {
+    top: auto;
+    bottom: 6%;
+    right: 4%;
+    transform: translateY(0);
+    width: 220px;
+    opacity: 0.92;
+  }
+  @keyframes oracleEnter {
+    from { opacity: 0; transform: translate(20px, 20px) scale(0.94); }
+    to   { opacity: 0.92; transform: translate(0, 0) scale(1); }
+  }
+}
+
+/* Mobile — mascot drops into natural flow, sits BELOW headline as a closing ornament */
+@media (max-width: 900px) {
+  nav { padding: 1.2rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero {
+    padding: 8rem 1.5rem 3rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2rem;
+  }
+  .hero-h1 { font-size: clamp(4rem, 14vw, 6rem); }
+  .hero-inner { width: 100%; max-width: 100%; }
+
+  /* re-scale the background "VALUES" word so it fits a phone viewport */
+  .hero-bg-word {
+    font-size: clamp(7rem, 32vw, 14rem);
+    top: 38%;
+  }
+
+  .oracle {
+    position: static;
+    transform: none;
+    width: 200px;
+    height: auto;
+    aspect-ratio: 7 / 8;
+    margin: 0.5rem auto 0;
+    opacity: 1;
+    order: 1;             /* sit BELOW hero-inner as closing ornament */
+    right: auto; top: auto; bottom: auto;
+  }
+  @keyframes oracleEnter {
+    from { opacity: 0; transform: translateY(18px) scale(0.94); }
+    to   { opacity: 1;  transform: translateY(0)   scale(1);    }
+  }
+  .d4 { display: none; }   /* avoid clutter near her */
+
+  .values-section { padding: 5rem 1.5rem 1.5rem; }
+  .manifesto { padding: 3.5rem 1.5rem 5rem; }
+  .manifesto-stage { padding: 1rem 0 0; }
+  .m-quote { font-size: clamp(1.4rem, 6vw, 2rem); margin-bottom: 0; }
+  .m-orbit.mo1, .m-orbit.mo2 { display: none; }
+  .v-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 3rem 1rem !important;
+  }
+  .v-num { font-size: clamp(4rem, 18vw, 6rem); }
+  .v-content { padding-top: 0.5rem; }
+  .v-title { font-size: clamp(1.6rem, 7vw, 2rem); }
+  .page-cta { margin: 0 1.5rem; grid-template-columns: 1fr; }
+  .cta-btns { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+  footer { flex-direction: column; gap: 1.2rem; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
+}
+
+/* Very small phones — slightly tighter mascot, hide her orbiting planets */
+@media (max-width: 480px) {
+  .oracle { width: 180px; }
+  .oracle-orbit { display: none; }   /* declutter at this scale */
+}
+</style>
 </head>
+<body>
 
-<body class="page-loading about-template valuepage">
-    <main id="page" class="Talentpage">
-        <!-- Header -->
-        <header class="header dark">
-            <div class="header__inner">
-                <div class="logoContainer">
-                    <a href="https://eighthbrain.com" class="header__logo header__logo-small" title="EighthBrain">EighthBrain</a>
-                </div>
-                <nav class="nav">
-                    <ul class="menu">
-                        <li class="nav-home"><a href="https://eighthbrain.com">Home</a></li>
-                        <li class="nav-content"><a href="portfolio.html">Portfolio</a></li>
-                        <li class="nav-talent"><a href="team.html">Team</a></li>
-                        <li class="nav-content nav-current"><a href="values.html">Values</a></li>
-                        <li class="nav-about"><a href="about.html">About</a></li>
-                        <li class="nav-blog"><a href="blog.html">Blog</a></li>
-                    </ul>
-                </nav>
-                <button class="header__toggle link" title="Open Navigation" aria-label="Toggle Navigation">
-                    <span class="line"></span>
-                    <span class="line alt"></span>
-                    <span class="line"></span>
-                </button>
-            </div>
-        </header>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 
-        <!-- Hero Section -->
-        <div class="HeaderDivider"></div>
-        <section class="ServciesHero">
-            <div class="container">
-                <div class="herocontent value">
-                    <div class="inside-hero-img">
-                        <div class="welcome-img">
-                            <img src="assets/EighthBrain-Values.png" alt="EighthBrain Values - Empowering Innovation and Collaboration" loading="lazy">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- ── NAV ── -->
+<nav>
+  <a href="generalrealm.html" class="nav-logo">
+    <div class="nav-pip"></div>
+    GENERALREALM
+  </a>
+  <ul class="nav-links">
+    <li><a href="generalrealm.html">Home</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="#">Team</a></li>
+    <li><a href="#" class="active">Values</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Blog</a></li>
+  </ul>
+  <a href="#" class="nav-apply">Apply Now</a>
+</nav>
 
-        <!-- Content Sections -->
-        <section class="AboutSec1 prodcution1">
-            <div class="container">
-                <div class="service-bigTxt align-center width980">
-                    <p class="big-txt bold">Investing in Bold Visionaries</p>
-                    <p class="services-text1">Founded in 2024, EighthBrain is built to back visionary founders who dare to reshape the world.</p>
-                </div>
-            </div>
-        </section>
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg-word">VALUES</div>
 
-        <section class="production-row-3">
-            <div class="container">
-                <div class="prRow1 text-center">
-                    <div class="pr-row4-text">
-                        <p class="pr4-txt1">Founder Partnership</p>
-                        <p class="pr4-txt2"></p>
-                        <p>We believe venture capital is a long-term partnership. We work closely with founders, offering clear communication, strategic insight, and consistent support. Their success is our success.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <!-- floating doodle decorations (🪐, 💫, ✦ removed — the mascot is the real cosmic element) -->
+  <div class="doodle d4">~ ~ ~</div>
 
-        <section class="production-row-4">
-            <div class="container">
-                <div class="prRow1 text-center mobile-reverse1">
-                    <div class="pr-row4-text">
-                        <p class="pr4-txt1">Rigorous Diligence</p>
-                        <p class="pr4-txt2"></p>
-                        <p>We make informed investments through disciplined analysis—evaluating markets, teams, technologies, and business fundamentals with conviction.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <div class="hero-inner">
+    <div class="hero-kicker">what we actually believe</div>
 
-        <section class="production-row-5">
-            <div class="container">
-                <div class="prRow1 text-center">
-                    <div class="pr-row4-text">
-                        <p class="pr4-txt1">Long-Term Focus</p>
-                        <p class="pr4-txt2"></p>
-                        <p>We invest with patience. Our goal is to build enduring companies that generate lasting impact and value, not just quick returns.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <h1 class="hero-h1">
+      THE<br>
+      STUFF<br>
+      <span class="serif-bit">that matters</span>
+    </h1>
 
-        <section class="production-row-4">
-            <div class="container">
-                <div class="prRow1 text-center mobile-reverse1">
-                    <div class="pr-row4-text">
-                        <p class="pr4-txt1">Operational Depth </p>
-                        <p class="pr4-txt2"></p>
-                        <p>We bring real-world experience. From scaling operations to product strategy and team building, we support execution beyond the boardroom.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <p class="hero-sub">
+      Founded in 2024, GeneralRealm is built to back <strong>visionary founders</strong> who dare to reshape the world. These aren't values we carved into marble — they're how we actually show up every day.
+    </p>
 
-        <section class="production-row-5">
-            <div class="container">
-                <div class="prRow1 text-center">
-                    <div class="pr-row4-text">
-                        <p class="pr4-txt1">Integrity & Transparency </p>
-                        <p class="pr4-txt2"></p>
-                        <p>Trust is the foundation of every great venture. We act with honesty, clarity, and accountability in all our relationships—with founders, investors, and partners.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="founded-tag">Founded 2024 &nbsp;·&nbsp; Investing in bold visionaries</div>
+  </div>
 
-        <!-- Footer -->
-        <footer>
-            <div class="container">
-                <div class="footer-logo">EighthBrain</div>
-                <div class="footer-social">
-                    <ul class="footersocial">
-                        <li><a href="https://facebook.com/eighthbrain" target="_blank" rel="noopener noreferrer"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="https://twitter.com/eighthbrain" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="https://instagram.com/eighthbrain" target="_blank" rel="noopener noreferrer"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                        <li><a href="https://linkedin.com/company/eighthbrain" target="_blank" rel="noopener noreferrer"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <ul>
-                        <li><a href="https://eighthbrain.com">Home</a></li>
-                        <li><a href="portfolio">Portfolio</a></li>
-                        <li><a href="team">Team</a></li>
-                        <li><a href="values">Values</a></li>
-                        <li><a href="about">About</a></li>
-                        <li><a href="blog">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact-info">
-                    <p>©2024 EighthBrain | All Rights Reserved.</p>
-                </div>
-            </div>
-        </footer>
-    </main>
+  <!-- ── COSMIC ORACLE: the mascot, our hero companion ── -->
+  <div class="oracle" id="oracle">
+    <div class="oracle-aura"></div>
+    <span class="oracle-orbit o1"></span>
+    <span class="oracle-orbit o2"></span>
+    <span class="oracle-orbit o3"></span>
+    <span class="oracle-orbit o4"></span>
+    <img class="oracle-img" src="https://generalrealm.com/assets/EighthBrain-Values.png" alt="GeneralRealm cosmic oracle mascot — meditating among floating planets">
+  </div>
+</section>
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script>
-        var jq9 = jQuery.noConflict();
-        jq9(document).ready(function () {
-            jq9(".header__toggle").click(function () {
-                jq9(this).toggleClass("active");
-                jq9(".nav").toggleClass("viewable");
-            });
+<!-- ── DIVIDER STRIP — featured quote ── -->
+<div class="strip">
+  <div class="strip-quote">
+    <p class="strip-text">
+      &ldquo;Anyone can have values. We have <span class="strip-key">habits</span>.&rdquo;
+    </p>
+    <span class="strip-byline">what follows is the evidence</span>
+  </div>
+</div>
 
-            jq9('.logoslider').slick({
-                dots: false,
-                arrows: true,
-                infinite: true,
-                speed: 300,
-                slidesToShow: 4,
-                slidesToScroll: 1,
-                centerMode: false,
-                prevArrow: "<a class='slick-prev pull-left'><i class='fa fa-angle-left' aria-hidden='true'></i></a>",
-                nextArrow: "<a class='slick-next pull-right'><i class='fa fa-angle-right' aria-hidden='true'></i></a>",
-                responsive: [
-                    {
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 1,
-                            infinite: true,
-                            dots: false
-                        }
-                    },
-                    {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                        }
-                    }
-                ]
-            });
-        });
-    </script>
+<!-- ── VALUES ── -->
+<section class="values-section">
+  <div class="values-head reveal">
+    <span class="values-head-label">five things we live by</span>
+    <h2>OUR<br><em>core values</em></h2>
+    <span class="values-head-note">( no fluff, we promise ↓ )</span>
+  </div>
+
+  <div class="values-list">
+
+    <article class="v-row reveal rd1" data-c="gold">
+      <div class="v-num">01</div>
+      <div class="v-content">
+        <h3 class="v-title">FOUNDER PARTNERSHIP</h3>
+        <span class="v-tagline">your win is our win, always</span>
+        <p class="v-desc">We believe venture capital is a long-term partnership — not a transaction. We work closely with founders, offering clear communication, strategic insight, and consistent support through every high and every rough patch. When you succeed, so do we. Simple as that.</p>
+      </div>
+    </article>
+
+    <article class="v-row reveal rd2" data-c="lavender">
+      <div class="v-num">02</div>
+      <div class="v-content">
+        <h3 class="v-title">RIGOROUS DILIGENCE</h3>
+        <span class="v-tagline">we do the homework so we can back you harder</span>
+        <p class="v-desc">We make informed investments through disciplined analysis — digging into markets, teams, technologies, and business fundamentals with real conviction. No gut-feel-only bets, no FOMO checks. When we're in, we're genuinely in.</p>
+      </div>
+    </article>
+
+    <article class="v-row reveal rd3" data-c="cyan">
+      <div class="v-num">03</div>
+      <div class="v-content">
+        <h3 class="v-title">LONG-TERM FOCUS</h3>
+        <span class="v-tagline">we play the infinite game</span>
+        <p class="v-desc">We invest with patience. Our goal is to build enduring companies that generate lasting impact and real value — not just quick returns and a hasty exit. The best companies take time, and we're here for all of it.</p>
+      </div>
+    </article>
+
+    <article class="v-row reveal rd4" data-c="pink">
+      <div class="v-num">04</div>
+      <div class="v-content">
+        <h3 class="v-title">OPERATIONAL DEPTH</h3>
+        <span class="v-tagline">we've been in the trenches too</span>
+        <p class="v-desc">We bring real-world experience to the table. From scaling operations to product strategy and team building, we support execution beyond the boardroom — because we know the hard stuff happens in the weeds, not the deck.</p>
+      </div>
+    </article>
+
+    <article class="v-row reveal rd5" data-c="mint">
+      <div class="v-num">05</div>
+      <div class="v-content">
+        <h3 class="v-title">INTEGRITY &amp; TRANSPARENCY</h3>
+        <span class="v-tagline">trust is the whole game</span>
+        <p class="v-desc">Trust is the foundation of every great venture — and every great relationship. We act with honesty, clarity, and accountability in all our dealings, with founders, investors, and partners. If something is hard to say, we say it anyway.</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ── MANIFESTO — EDITORIAL PULL-QUOTE ── -->
+<div class="manifesto reveal">
+  <div class="manifesto-stage">
+
+    <!-- Floating cosmic dots -->
+    <span class="m-orbit mo1"></span>
+    <span class="m-orbit mo2"></span>
+    <span class="m-orbit mo3"></span>
+    <span class="m-orbit mo4"></span>
+    <span class="m-orbit mo5"></span>
+
+    <!-- Stamp-style north star badge -->
+    <div class="m-badge">
+      <span class="m-badge-rule"></span>
+      <span class="m-badge-text">the rule above the rules</span>
+      <span class="m-badge-star">✦</span>
+    </div>
+
+    <!-- The quote — magazine pull-quote treatment -->
+    <p class="m-quote">
+      If we ever need this page to remind us, we've <span class="m-highlight">already lost.</span>
+    </p>
+
+  </div>
+</div>
+
+
+<!-- ── CTA ── -->
+<div class="page-cta reveal">
+  <div class="cta-text-chunk">
+    <span class="cta-kicker">sound like your kind of people?</span>
+    <h2 class="cta-h">LET'S BUILD<br>SOMETHING BOLD</h2>
+    <p class="cta-p">We'd love to hear what you're working on — whether it's a napkin sketch or a live product. Drop us a deck, or just say hi.</p>
+  </div>
+  <div class="cta-btns">
+    <a href="#" class="btn-dark">Apply Now →</a>
+    <a href="portfolio.html" class="btn-light">See Portfolio</a>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-brand"><div class="nav-pip"></div>GENERALREALM</div>
+  <ul class="footer-links">
+    <li><a href="generalrealm.html">Home</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="#">Team</a></li>
+    <li><a href="#">Values</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Blog</a></li>
+  </ul>
+  <div class="footer-copy">©2026 GeneralRealm · All Rights Reserved</div>
+</footer>
+
+<script>
+/* ── CURSOR ── */
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+document.querySelectorAll('a,button,.v-row').forEach(el=>{
+  el.addEventListener('mouseenter', ()=>{
+    cur.style.transform='translate(-50%,-50%) scale(2.4)';
+    ring.style.width='62px'; ring.style.height='62px';
+  });
+  el.addEventListener('mouseleave', ()=>{
+    cur.style.transform='translate(-50%,-50%) scale(1)';
+    ring.style.width='38px'; ring.style.height='38px';
+  });
+});
+(function anim(){
+  cur.style.left=mx+'px'; cur.style.top=my+'px';
+  rx+=(mx-rx)*0.11; ry+=(my-ry)*0.11;
+  ring.style.left=rx+'px'; ring.style.top=ry+'px';
+  requestAnimationFrame(anim);
+})();
+
+/* ── SCROLL REVEAL ── */
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+},{ threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* ── ORACLE: subtle parallax on mouse move (desktop only) ── */
+const oracle = document.getElementById('oracle');
+if (oracle && window.matchMedia('(min-width: 1001px)').matches) {
+  const img = oracle.querySelector('.oracle-img');
+  const orbits = oracle.querySelectorAll('.oracle-orbit');
+  document.addEventListener('mousemove', e => {
+    const dx = (e.clientX / window.innerWidth  - 0.5);
+    const dy = (e.clientY / window.innerHeight - 0.5);
+    if (img) img.style.translate = `${dx * -10}px ${dy * -8}px`;
+    orbits.forEach((o, i) => {
+      const k = (i + 1) * 6;
+      o.style.translate = `${dx * k}px ${dy * k}px`;
+    });
+  });
+}
+</script>
 </body>
 </html>
