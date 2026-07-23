@@ -3,9 +3,8 @@
 <head>
 
 
-    <link rel="preconnect" href="https://ajax.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabinet+Grotesk:wght@300;400;500;700;800;900&family=Instrument+Serif:ital,wght@0,400;1,400&family=Caveat:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/style.css">
 
     <meta charset="utf-8">
@@ -21,44 +20,115 @@
     <meta property="og:description" content="{{seoDesc}}">
     <meta property="og:image" content="{{image}}">
     <meta property="og:url" content="{{canonical}}">
+
+    <!-- GeneralRealm header/footer styles (matches homepage) -->
+    <style>
+    :root {
+      --bg: #ffffff; --bg2: #f7f3ee; --bg3: #ede7de;
+      --ink: #1c1510; --ink2: #4a3f35; --muted: #8a7d72;
+      --c1: #c8a8f8; --c2: #f7a8cc; --c3: #80e8ff;
+      --c4: #f7d86c; --c5: #a8f0d8; --c6: #ffb380;
+      --F: 'Bebas Neue', sans-serif;
+      --FS: 'Instrument Serif', serif;
+      --FB: 'Cabinet Grotesk', sans-serif;
+      --FH: 'Instrument Serif', serif;
+    }
+    .gr-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.6rem 3.5rem;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(28,21,16,0.06);
+      font-family: var(--FB);
+    }
+    .gr-nav .nav-logo {
+      font-family: var(--F); font-size: 1.35rem; letter-spacing: 0.09em;
+      text-decoration: none; color: var(--ink);
+      display: flex; align-items: center; gap: 0.65rem;
+    }
+    .gr-nav .nav-pip {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--c1), var(--c2));
+      animation: gr-pip 2.5s ease-in-out infinite;
+    }
+    @keyframes gr-pip {
+      0%,100% { transform: scale(1); box-shadow: 0 0 0 3px rgba(200,168,248,0.2); }
+      50% { transform: scale(1.35); box-shadow: 0 0 0 6px rgba(200,168,248,0.08); }
+    }
+    .gr-nav .nav-links { display: flex; gap: 2.2rem; list-style: none; margin: 0; padding: 0; }
+    .gr-nav .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.8rem;
+      font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase;
+      transition: color 0.2s; position: relative;
+    }
+    .gr-nav .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 1.5px;
+      background: var(--c2); border-radius: 2px;
+      transform: scaleX(0); transform-origin: left; transition: transform 0.22s;
+    }
+    .gr-nav .nav-links a:hover { color: var(--ink); }
+    .gr-nav .nav-links a:hover::after, .gr-nav .nav-links a.active::after { transform: scaleX(1); }
+    .gr-nav .nav-links a.active { color: var(--ink); }
+    .gr-nav .nav-cta {
+      font-family: var(--FB); font-weight: 800; font-size: 0.78rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      background: var(--ink); color: white;
+      border: none; border-radius: 100px; padding: 0.58rem 1.35rem;
+      transition: background 0.22s, transform 0.22s;
+      text-decoration: none; display: inline-block;
+    }
+    .gr-nav .nav-cta:hover { background: var(--c1); color: var(--ink); transform: translateY(-1px); }
+
+    .gr-footer {
+      border-top: 1px solid rgba(28,21,16,0.07);
+      padding: 2rem 3.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: white; font-family: var(--FB);
+    }
+    .gr-footer .footer-logo {
+      font-family: var(--F); font-size: 1.1rem; letter-spacing: 0.09em;
+      color: var(--ink2); display: flex; align-items: center; gap: 0.6rem;
+      text-decoration: none;
+    }
+    .gr-footer .footer-links { display: flex; gap: 2rem; list-style: none; margin: 0; padding: 0; }
+    .gr-footer .footer-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.78rem;
+      font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; transition: color 0.2s;
+    }
+    .gr-footer .footer-links a:hover { color: var(--ink); }
+    .gr-footer .footer-copy { font-size: 0.73rem; color: var(--muted); }
+
+    /* offset for fixed nav so article isn't hidden underneath */
+    body.post-template { padding-top: 76px; }
+
+    @media (max-width: 900px) {
+      .gr-nav { padding: 1.2rem 1.5rem; }
+      .gr-nav .nav-links { display: none; }
+      .gr-footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+      .gr-footer .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    }
+    </style>
 </head>
 
 <body class="page-loading post-template">
 
 
-<main id="page" class="Articlepage">
-	<header class="header dark">
-    <div class="header__inner">
-      <div class="logoContainer">
-          <a href="/" class="header__logo header__logo-small" title="EighthBrain">EighthBrain</a>
-      </div>
-
-
-        <nav class="nav">
-        <ul class="menu">
-    <!-- Loop through the navigation items -->
-    <li class="nav-home "><a href="/">Home</a></li>
-    <li class="nav-content"><a href="/services">Services</a></li>
-    <li class="nav-content"><a href="/content">Content</a></li>
-    <li class="nav-talent"><a href="/talent">Talent</a></li>
-    <li class="nav-content"><a href="/production">Production</a></li>
-    <li class="nav-about"><a href="/about">About</a></li>
-    <li class="nav-blog nav-current"><a href="/blog/">Blog</a></li>
-    <li class="nav-contact"><a href="/contact">Contact</a></li>
-    <!-- End the loop -->
-</ul>
-
+<!-- ── NAV (GeneralRealm) ── -->
+<nav>
+  <a href="https://generalrealm.com/" class="nav-logo">
+    <div class="nav-pip"></div>
+    GENERALREALM
+  </a>
+  <ul class="nav-links">
+    <li><a href="https://generalrealm.com/portfolio.html">Portfolio</a></li>
+    <li><a href="https://generalrealm.com/team.html">Team</a></li>
+    <li><a href="https://generalrealm.com/values.html">Values</a></li>
+    <li><a href="https://generalrealm.com/about.html">About</a></li>
+    <li><a href="https://generalrealm.com/blog/" class="active">Blog</a></li>
+  </ul>
+  <a href="#" class="nav-cta">Apply Now</a>
 </nav>
-        <button class="header__toggle link" title="Open Navigation">
-          <span class="line"></span>
-          <span class="line alt"></span>
-          <span class="line"></span>
-        </button>
-    </div>
-  </header>
-</main>
-
-<div class="HeaderDivider"></div>
 
 
   <section class="ArticleWrapper">
@@ -76,68 +146,23 @@
   </section>
 
 
-
-<!--Footer Start  -->
-
+<!-- ── FOOTER (GeneralRealm) ── -->
 <footer>
-  <div class="container">
-     <div class="footer-logo">EighthBrain</div>
-
-     <div class="footer-social-">
-
-        <ul class="footersocial">
-            <li><a href="#" target="_blank" rel="noopener"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-            <li><a href="#" target="_blank" rel="noopener"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-            <li><a href="#" target="_blank" rel="noopener"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-            <li><a href="#" target="_blank" rel="noopener"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-       </ul>
-     </div>
-
-
-
-
-     <div class="footer-links">
-       <ul>
-         <li><a href="/">Home</a></li>
-         <li><a href="/about">About</a></li>
-         <li><a href="/services">Services</a></li>
-         <li><a href="/production">Production</a></li>
-         <li><a href="/talent">Talent</a></li>
-         <li><a href="/content">Content</a></li>
-         <li><a href="/blog/">Blog</a></li>
-         <li><a href="/contact">Contact</a></li>
-       </ul>
-
-     </div>
-
-
-    <div class="footer-contact-info">
-
-       <p>&copy;2024 EighthBrain | All Rights Reserved.</p>
-
-    </div>
-
-  </div>
-
+  <a href="https://generalrealm.com/" class="footer-logo">
+    <div class="nav-pip"></div>
+    GENERALREALM
+  </a>
+  <ul class="footer-links">
+    <li><a href="https://generalrealm.com/portfolio.html">Portfolio</a></li>
+    <li><a href="https://generalrealm.com/team.html">Team</a></li>
+    <li><a href="https://generalrealm.com/values.html">Values</a></li>
+    <li><a href="https://generalrealm.com/about.html">About</a></li>
+    <li><a href="https://generalrealm.com/blog">Blog</a></li>
+  </ul>
+  <div class="footer-copy">©2026 GeneralRealm · All Rights Reserved</div>
 </footer>
 
-
-<!--Footer END  -->
-
-
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
-<script>
-var jq9=jQuery.noConflict();
-jq9(document).ready(function(){
-  jq9(".header__toggle").click(function(){
-      jq9(this).toggleClass("active");
-      jq9(".nav").toggleClass("viewable");
-  });
-});
-
-</script>
 
 </body>
 </html>
