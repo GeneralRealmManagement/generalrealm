@@ -122,9 +122,35 @@ nav {
 }
 .nav-cta:hover { background: var(--c1); color: var(--ink); transform: translateY(-1px); }
 
+        /* ── FOOTER ── */
+footer {
+  border-top: 1px solid rgba(28,21,16,0.07);
+  padding: 2rem 3.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  background: white;
+}
+.footer-logo {
+  font-family: var(--F); font-size: 1.1rem; letter-spacing: 0.09em;
+  color: var(--ink2); display: flex; align-items: center; gap: 0.6rem;
+  text-decoration: none;
+}
+.footer-links { display: flex; gap: 2rem; list-style: none; }
+.footer-links a {
+  color: var(--muted); text-decoration: none; font-size: 0.78rem;
+  font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--ink); }
+.footer-copy { font-size: 0.73rem; color: var(--muted); }
+
+/* ── REVEAL ── */
+.reveal { opacity:0; transform:translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.rd1{transition-delay:.05s} .rd2{transition-delay:.1s}
+.rd3{transition-delay:.15s} .rd4{transition-delay:.2s}
 
     /* offset for fixed nav so blog content isn't hidden underneath */
     body.blog-template { padding-top: 76px; }
+        
 
     @media (max-width: 900px) {
       .gr-nav { padding: 1.2rem 1.5rem; }
