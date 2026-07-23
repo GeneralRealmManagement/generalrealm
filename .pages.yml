@@ -42,3 +42,150 @@ content:
       - name: body
         label: Content
         type: rich-text
+
+  - name: companies
+    label: Portfolio Companies
+    type: collection
+    path: content/companies
+    view:
+      fields: [name, sector, stage, order]
+      sort: [order, name]
+      default:
+        sort: order
+        order: asc
+    fields:
+      - name: name
+        label: Company Name
+        type: string
+        required: true
+      - name: tagline
+        label: Tagline (one short line, shown on the card)
+        type: string
+      - name: category
+        label: Category (long label, e.g. Consumer Internet & Media)
+        type: string
+      - name: sector
+        label: Sector (used by the filter buttons)
+        type: select
+        options:
+          values:
+            - { value: consumer,  label: Consumer }
+            - { value: ai,        label: AI & ML }
+            - { value: deep-tech, label: Deep Tech }
+            - { value: climate,   label: Climate }
+            - { value: fintech,   label: Fintech }
+            - { value: dev-tools, label: Dev Tools }
+            - { value: health,    label: Health }
+        default: consumer
+      - name: stage
+        label: Stage
+        type: select
+        options:
+          values:
+            - { value: pre-seed, label: Pre-Seed }
+            - { value: seed,     label: Seed }
+            - { value: series-a, label: Series A }
+        default: seed
+      - name: founders
+        label: Founders (comma separated)
+        type: string
+      - name: website
+        label: Website URL
+        type: string
+      - name: order
+        label: Order (lower number shows first)
+        type: number
+        default: 100
+      - name: show_on_homepage
+        label: Show in homepage portfolio section
+        type: boolean
+        default: false
+      - name: draft
+        label: Draft (hide from site)
+        type: boolean
+        default: false
+      - name: body
+        label: Description (shown in the popup)
+        type: rich-text
+
+  - name: team
+    label: Team Members
+    type: collection
+    path: content/team
+    view:
+      fields: [name, role, order]
+      sort: [order, name]
+      default:
+        sort: order
+        order: asc
+    fields:
+      - name: name
+        label: Full Name
+        type: string
+        required: true
+      - name: role
+        label: Role / Title
+        type: string
+      - name: initials
+        label: Initials (leave blank to generate from the name)
+        type: string
+      - name: tags
+        label: Tags (comma separated, e.g. Infrastructure, Deep Tech)
+        type: string
+      - name: linkedin
+        label: LinkedIn URL
+        type: string
+        default: "#"
+      - name: twitter
+        label: X / Twitter URL
+        type: string
+        default: "#"
+      - name: email
+        label: Email link (e.g. mailto:name@generalrealm.com)
+        type: string
+        default: "#"
+      - name: order
+        label: Order (lower number shows first)
+        type: number
+        default: 100
+      - name: draft
+        label: Draft (hide from site)
+        type: boolean
+        default: false
+      - name: body
+        label: Bio
+        type: rich-text
+
+  - name: roles
+    label: Open Roles
+    type: collection
+    path: content/roles
+    view:
+      fields: [title, tag, order]
+      sort: [order, title]
+      default:
+        sort: order
+        order: asc
+    fields:
+      - name: title
+        label: Role Title
+        type: string
+        required: true
+      - name: details
+        label: Details (e.g. Full-time · Remote-first)
+        type: string
+      - name: tag
+        label: Tag (e.g. Investment, Platform, Research)
+        type: string
+      - name: apply_url
+        label: Apply link (URL or mailto:)
+        type: string
+        default: "#"
+      - name: order
+        label: Order (lower number shows first)
+        type: number
+        default: 100
+      - name: draft
+        label: Draft (hide from site)
+        type: boolean
+        default: false
